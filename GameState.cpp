@@ -1,0 +1,122 @@
+/*****************************************************************************/
+/*! \file    GameState.cpp
+ *  \author  LH
+ *  \date    2011-05-26
+ *
+ *  \brief   Game informations sent by the referee box
+ *****************************************************************************/
+#include "GameState.h"
+
+#include <iostream>
+
+using namespace std;
+
+namespace RhobanReferee{
+
+/* The value -1 is used to know if the wireless is working */
+GameState::GameState(){
+	m_struct_version = -1;
+	m_num_player = -1;
+	m_actual_game_state = -1;
+	m_first_half = -1;
+	m_kick_off_team = -1;
+	m_sec_game_state = -1;
+	m_drop_in_team = -1;
+	m_drop_in_time = -1;
+	m_estimated_secs = -1;
+}
+
+GameState::~GameState(){
+}
+
+/* Use a broadcasted message to update the GameState */
+bool GameState::update_from_message(char const* message){
+	m_last_game_state_update.update();
+  int struct_version = chars_to_int(message, 4, 8);
+  if (struct_version != 7) return false;
+	m_struct_version = struct_version; 
+	m_num_player = chars_to_int(message, 8, 9);
+	m_actual_game_state = chars_to_int(message, 9, 10);
+	m_first_half = chars_to_int(message, 10, 11);
+	m_kick_off_team = chars_to_int(message, 11, 12);
+	m_sec_game_state = chars_to_int(message, 12, 13);
+	m_drop_in_team = chars_to_int(message, 13, 14);
+	m_drop_in_time = chars_to_int(message, 14, 16);
+	m_estimated_secs = chars_to_int(message, 16, 20);
+  for (int i = 0; i < NB_TEAMS; i++)
+    m_team[i].update_from_message(message,i);
+  return true;
+}
+
+/* GETTERS */
+int GameState::getLastUpdate() const{
+  return m_last_game_state_update.elapsed_time();
+}
+
+int GameState::getStructVersion() const{
+  return m_struct_version;
+}
+
+int GameState::getNumPlayer() const{
+  return m_num_player;
+}
+
+int GameState::getActualGameState() const{
+  return m_actual_game_state;
+}
+
+int GameState::getFirstHalf() const{
+  return m_first_half;
+}
+
+int GameState::getKickOffTeam() const{
+  return m_kick_off_team;
+}
+
+int GameState::getSecGameState() const{
+  return m_sec_game_state;
+}
+
+int GameState::getDropInTeam() const{
+  return m_drop_in_team;
+}
+
+int GameState::getDropInTime() const{
+  return m_drop_in_time;
+}
+
+int GameState::getEstimatedSecs() const{
+  return m_estimated_secs;
+}
+
+int GameState::getNbTeam() const{
+  return NB_TEAMS;
+}
+
+const Team & GameState::getTeam(int teamNumber) const{
+  return m_team[teamNumber];
+}
+
+ostream& operator<<(ostream& flux, GameState const* gs){
+	flux << "time since last update : ";
+  flux << gs->getLastUpdate() << endl;
+	flux << "struct_version : " << gs->getStructVersion() << endl;
+	flux << "num_player : " << gs->getNumPlayer() << endl;
+	flux << "gameState : " << gs->getActualGameState() << endl;
+	flux << "first_half : " << gs->getFirstHalf() << endl;
+	flux << "kick_off_team : " << gs->getKickOffTeam() << endl;
+	flux << "sec_game_state : " << gs->getSecGameState() << endl;
+	flux << "drop_in_team : " << gs->getDropInTeam() << endl;
+	flux << "drop_in_time : " << gs->getDropInTime() << endl;
+	flux << "estimated_secs : " << gs->getEstimatedSecs() << endl;
+  for (int i = 0; i < NB_TEAMS; i++){
+    flux << "Team " << i << std::endl;
+    flux << gs->getTeam(i);
+  }
+	return flux;
+}
+
+}
+
+/*****************************************************************************/
+/*****************************************************************************/

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package>
+  <name>RobocupReferee</name>
+  <version>0.0.0</version>
+  <description>The robocup refere for kid-size league</description>
+
+  <maintainer email="lhofer@labri.fr">Ludovic Hofer</maintainer>
+  <author email="lhofer@labri.fr">Ludovic Hofer</author>
+  <author email="gpassault@labri.fr">Grégoire Passault</author>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <export>
+  </export>
+</package>
