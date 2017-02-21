@@ -33,11 +33,11 @@ namespace RhobanReferee{
     // EXPECTED FIELD SIZES
     const double Constants::lineWidth         =   5;
     const double Constants::centerRadius      =  75;
-    const double Constants::borderStripWidth  =  70;//Or bigger
-    const double Constants::penaltyMarkDist   = 180;
+    const double Constants::borderStripWidth  =  70;//Minimum value
+    const double Constants::penaltyMarkDist   = 210;
     const double Constants::penaltyMarkLength =  10;
-    const double Constants::goalWidth         = 210;
-    const double Constants::goalDepth         =  50;
+    const double Constants::goalWidth         = 260;
+    const double Constants::goalDepth         =  60;
     const double Constants::goalAreaLength    = 100;
     const double Constants::goalAreaWidth     = 500;
     const double Constants::fieldLength       = 900;
