@@ -4,6 +4,9 @@ project(RobocupReferee)
 ## Find catkin macros and lib
 find_package(catkin REQUIRED)
 
+## Building the main
+option (BUILD_REFEREE_BIN "Build referee binary" OFF)
+
 catkin_package(
   INCLUDE_DIRS .
   LIBRARIES RobocupReferee
@@ -21,6 +24,9 @@ set(SOURCES
   utilities.cpp
 )
 
-
-
 add_library(RobocupReferee ${SOURCES})
+
+if (BUILD_REFEREE_BIN)
+    add_executable (referee main.cpp)
+    target_link_libraries (referee RobocupReferee pthread)
+endif ()
