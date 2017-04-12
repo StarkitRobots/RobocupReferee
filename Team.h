@@ -23,7 +23,6 @@ namespace RhobanReferee{
 
             int getTeamNumber() const;
             int getTeamColor() const;
-            int getGoalColor() const;
             int getScore() const;
             int getNbRobots() const;
             const Robot & getRobot(int robot) const;
@@ -34,7 +33,6 @@ namespace RhobanReferee{
         private:
             int m_team_number;
             int m_team_color;
-            int m_goal_color;
             int m_score;
             Robot m_robots[NB_ROBOTS];
 

@@ -12,8 +12,9 @@ using namespace std;
 namespace RhobanReferee{
 
     /* Classes and messages size */
-    const int Constants::nb_chars_by_robot = 4;
-    const int Constants::nb_chars_by_team = 4 + Constants::nb_chars_by_robot * 11; // The referee box works with up to 11 robots
+    const int Constants::nb_chars_by_robot = 2;
+    const int Constants::nb_chars_by_team = 260 + Constants::nb_chars_by_robot * 12; 
+    // The referee box works with up to 11 robots, plus the coach
 
     /* Headers */
     const char * Constants::game_state_header = "RGme";

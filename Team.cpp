@@ -14,7 +14,6 @@ namespace RhobanReferee{
     Team::Team(){
         m_team_number = 0;
         m_team_color = 0;
-        m_goal_color = 0;
         m_score = 0;
     }
 
@@ -27,10 +26,6 @@ namespace RhobanReferee{
 
     int Team::getTeamColor() const{
         return m_team_color;
-    }
-
-    int Team::getGoalColor() const{
-        return m_goal_color;
     }
 
     int Team::getScore() const{
@@ -48,19 +43,17 @@ namespace RhobanReferee{
     /* Use a broadcasted message to update the Robot */
     void Team::update_from_message(char const* message,int numTeam){
         int d = Constants::nb_chars_by_team * numTeam;//decalage
-        m_team_number = chars_to_int(message, 20 + d, 21 + d);
-        m_team_color = chars_to_int(message, 21 + d, 22 + d);
-        m_goal_color = chars_to_int(message, 22 + d, 23 + d);
-        m_score = chars_to_int(message, 23 + d, 24 + d);
+        m_team_number = chars_to_int(message, d+0, d+1);
+        m_team_color = chars_to_int(message, d+1, d+2);
+        m_score = chars_to_int(message, d+2, d+3);
         for (int robot = 0; robot < NB_ROBOTS; robot++){
-            m_robots[robot].update_from_message(message, numTeam, robot);
+            m_robots[robot].update_from_message(message+d+262, robot);
         }
     }
 
     ostream& operator<<(ostream& flux, Team const& t){
         flux << '\t' << "team_number : " << t.getTeamNumber() << endl;
         flux << '\t' << "team_color : " << t.getTeamColor() << endl;
-        flux << '\t' << "goal_color : " << t.getGoalColor() << endl;
         flux << '\t' << "score : " << t.getScore() << endl;
         for (int robot = 0; robot < NB_ROBOTS; robot++){
             flux << '\t' << "robot " << robot << std::endl;

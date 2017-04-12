@@ -28,10 +28,10 @@ int Robot::getSecsTillUnpenalised() const{
 }
 
 /* Use a broadcasted message to update the Robot */
-void Robot::update_from_message(char const* message, int numTeam, int numRobot){
-	int d = Constants::nb_chars_by_team * numTeam + Constants::nb_chars_by_robot * numRobot;//decalage
-	m_penalty = chars_to_int(message, 24 + d, 26 + d);
-	m_secs_till_unpenalised = chars_to_int(message, 26 + d, 28 + d);
+void Robot::update_from_message(char const* message, int numRobot){
+	int d = Constants::nb_chars_by_robot * numRobot;//decalage
+	m_penalty = chars_to_int(message, d+0, d+1);
+	m_secs_till_unpenalised = chars_to_int(message, d+1, d+2);
 }
 
 ostream& operator<<(ostream&flux, Robot const& r){

@@ -38,7 +38,7 @@ namespace RhobanReferee{
         int sock, n, optval;
         unsigned int length;
         struct sockaddr_in from, client_address;
-        char buffer[256];
+        char buffer[1024];
 
         optval = 1;
 
@@ -66,9 +66,9 @@ namespace RhobanReferee{
         while (1){
 #ifdef WIN32
             int l = length;
-            n = recvfrom(sock, buffer, 256, 0, (struct sockaddr *)&from, &l);
+            n = recvfrom(sock, buffer, 1024, 0, (struct sockaddr *)&from, &l);
 #else
-            n = recvfrom(sock, buffer, 256, 0, (struct sockaddr *)&from, &length);
+            n = recvfrom(sock, buffer, 1024, 0, (struct sockaddr *)&from, &length);
 #endif
             if (n < 0) ERROR("recvfrom");
             buffer[n] = '\0';

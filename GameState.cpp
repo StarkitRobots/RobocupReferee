@@ -32,19 +32,25 @@ GameState::~GameState(){
 /* Use a broadcasted message to update the GameState */
 bool GameState::update_from_message(char const* message){
 	m_last_game_state_update.update();
-  int struct_version = chars_to_int(message, 4, 8);
-  if (struct_version != 7) return false;
+  int struct_version = chars_to_int(message, 4, 6);
+  if (struct_version != 11) {
+      std::cerr << "Game controller bad version " << struct_version << std::endl;
+      return false;
+  }
 	m_struct_version = struct_version; 
-	m_num_player = chars_to_int(message, 8, 9);
+	m_num_player = chars_to_int(message, 7, 8);
+        m_game_type = chars_to_int(message, 8, 9);
 	m_actual_game_state = chars_to_int(message, 9, 10);
 	m_first_half = chars_to_int(message, 10, 11);
 	m_kick_off_team = chars_to_int(message, 11, 12);
 	m_sec_game_state = chars_to_int(message, 12, 13);
-	m_drop_in_team = chars_to_int(message, 13, 14);
-	m_drop_in_time = chars_to_int(message, 14, 16);
-	m_estimated_secs = chars_to_int(message, 16, 20);
+
+	m_drop_in_team = chars_to_int(message, 17, 18);
+	m_drop_in_time = chars_to_int(message, 18, 20);
+	m_estimated_secs = chars_to_int(message, 20, 22);
+        m_secondary_secs = chars_to_int(message, 22, 24);
   for (int i = 0; i < NB_TEAMS; i++)
-    m_team[i].update_from_message(message,i);
+    m_team[i].update_from_message(message+24, i);
   return true;
 }
 
@@ -55,6 +61,10 @@ int GameState::getLastUpdate() const{
 
 int GameState::getStructVersion() const{
   return m_struct_version;
+}
+
+int GameState::getGameType() const{
+  return m_game_type;
 }
 
 int GameState::getNumPlayer() const{
@@ -87,6 +97,10 @@ int GameState::getDropInTime() const{
 
 int GameState::getEstimatedSecs() const{
   return m_estimated_secs;
+}
+  
+int GameState::getSecondarySecs() const{
+    return m_secondary_secs;
 }
 
 int GameState::getNbTeam() const{

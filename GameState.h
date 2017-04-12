@@ -22,6 +22,7 @@ public:
   ~GameState();
   int getLastUpdate() const;
   int getStructVersion() const;
+  int getGameTyp() const;
   int getNumPlayer() const;
   int getActualGameState() const;
   int getFirstHalf() const;
@@ -30,7 +31,9 @@ public:
   int getDropInTeam() const;
   int getDropInTime() const;
   int getEstimatedSecs() const;
+  int getSecondarySecs() const;
   int getNbTeam() const;
+  int getGameType() const;
   const Team & getTeam(int teamNumber) const;
   
   /*! \brief Update the robot from a referee box message
@@ -43,6 +46,7 @@ public:
 private:
 	TimeStamp m_last_game_state_update;
   int m_struct_version;
+  int m_game_type;
   int m_num_player;
   int m_actual_game_state;
   int m_first_half;
@@ -51,6 +55,7 @@ private:
   int m_drop_in_team;
   int m_drop_in_time;
   int m_estimated_secs;
+  int m_secondary_secs;
   Team m_team[NB_TEAMS];
 };
 

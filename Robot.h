@@ -24,7 +24,7 @@ public:
   int getSecsTillUnpenalised() const;
   
   /*! \brief Update the robot from a referee box message */
-  void update_from_message(char const* message, int numTeam, int numRobot);
+  void update_from_message(char const* message, int numRobot);
 
 private:
   int m_penalty;
