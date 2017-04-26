@@ -32,6 +32,7 @@ public:
   int getDropInTime() const;
   int getEstimatedSecs() const;
   int getSecondarySecs() const;
+  int getSecondaryTeam() const;
   int getNbTeam() const;
   int getGameType() const;
   const Team & getTeam(int teamNumber) const;
@@ -56,6 +57,7 @@ private:
   int m_drop_in_time;
   int m_estimated_secs;
   int m_secondary_secs;
+  int m_secondary_team;
   Team m_team[NB_TEAMS];
 };
 

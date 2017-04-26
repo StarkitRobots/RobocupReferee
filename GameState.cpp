@@ -24,6 +24,7 @@ GameState::GameState(){
 	m_drop_in_team = -1;
 	m_drop_in_time = -1;
 	m_estimated_secs = -1;
+        m_secondary_team = -1;
 }
 
 GameState::~GameState(){
@@ -44,11 +45,14 @@ bool GameState::update_from_message(char const* message){
 	m_first_half = chars_to_int(message, 10, 11);
 	m_kick_off_team = chars_to_int(message, 11, 12);
 	m_sec_game_state = chars_to_int(message, 12, 13);
+        m_secondary_team = chars_to_int(message, 13, 14);
 
 	m_drop_in_team = chars_to_int(message, 17, 18);
 	m_drop_in_time = chars_to_int(message, 18, 20);
 	m_estimated_secs = chars_to_int(message, 20, 22);
         m_secondary_secs = chars_to_int(message, 22, 24);
+
+
   for (int i = 0; i < NB_TEAMS; i++)
     m_team[i].update_from_message(message+24, i);
   return true;
@@ -87,6 +91,10 @@ int GameState::getSecGameState() const{
   return m_sec_game_state;
 }
 
+int GameState::getSecondaryTeam() const{
+    return m_secondary_team;
+}
+
 int GameState::getDropInTeam() const{
   return m_drop_in_team;
 }
@@ -120,6 +128,7 @@ ostream& operator<<(ostream& flux, GameState const* gs){
 	flux << "first_half : " << gs->getFirstHalf() << endl;
 	flux << "kick_off_team : " << gs->getKickOffTeam() << endl;
 	flux << "sec_game_state : " << gs->getSecGameState() << endl;
+	flux << "sec_game_team : " << gs->getSecondaryTeam() << endl;
 	flux << "secondary_secs : " << gs->getSecondarySecs() << endl;
 	flux << "drop_in_team : " << gs->getDropInTeam() << endl;
 	flux << "drop_in_time : " << gs->getDropInTime() << endl;
