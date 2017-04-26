@@ -120,6 +120,7 @@ ostream& operator<<(ostream& flux, GameState const* gs){
 	flux << "first_half : " << gs->getFirstHalf() << endl;
 	flux << "kick_off_team : " << gs->getKickOffTeam() << endl;
 	flux << "sec_game_state : " << gs->getSecGameState() << endl;
+	flux << "secondary_secs : " << gs->getSecondarySecs() << endl;
 	flux << "drop_in_team : " << gs->getDropInTeam() << endl;
 	flux << "drop_in_time : " << gs->getDropInTime() << endl;
 	flux << "estimated_secs : " << gs->getEstimatedSecs() << endl;
