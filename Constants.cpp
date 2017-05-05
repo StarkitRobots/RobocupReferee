@@ -19,13 +19,13 @@ namespace RhobanReferee{
     /* Headers */
     const char * Constants::game_state_header = "RGme";
 
-    // FIELD SIZES at IUT
+    // FIELD SIZES at EirLab
     //const double Constants::lineWidth         =   5;
     //const double Constants::centerRadius      =  75;
     //const double Constants::borderStripWidth  =  28;
     //const double Constants::penaltyMarkDist   = 180;
     //const double Constants::penaltyMarkLength =  10;
-    //const double Constants::goalWidth         = 225;
+    //const double Constants::goalWidth         = 260;
     //const double Constants::goalDepth         =  50;
     //const double Constants::goalAreaLength    =  60;
     //const double Constants::goalAreaWidth     = 345;
