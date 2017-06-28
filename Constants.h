@@ -52,7 +52,7 @@ namespace RhobanReferee{
             static const int STATE2_PENALTYSHOOT = 1;
             static const int STATE2_OVERTIME = 2;
             static const int STATE2_TIMEOUT = 3;
-            static const int STATE2_FREE_KICK = 4;
+            static const int STATE2_DIRECT_FREE_KICK = 4;
             static const int STATE2_INDIRECT_FREE_KICK = 5;
 
             /* Penalties */
