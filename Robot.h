@@ -22,6 +22,8 @@ public:
 
   int getPenalty() const;
   int getSecsTillUnpenalised() const;
+  int getYellowCardCount() const;
+  int getRedCardCount() const;
   
   /*! \brief Update the robot from a referee box message */
   void update_from_message(char const* message, int numRobot);
@@ -29,7 +31,8 @@ public:
 private:
   int m_penalty;
   int m_secs_till_unpenalised;
-  
+  int m_yellow_card_count;
+  int m_red_card_count;
 };
 
 std::ostream& operator<<(std::ostream& flux, Robot const& myRobot);
