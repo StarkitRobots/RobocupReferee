@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(RobocupReferee)
 
 ## Find catkin macros and lib
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS RhobanUtils)
 
 ## Building the main
 option (BUILD_REFEREE_BIN "Build referee binary" OFF)
@@ -10,7 +10,10 @@ option (BUILD_REFEREE_BIN "Build referee binary" OFF)
 catkin_package(
   INCLUDE_DIRS .
   LIBRARIES RobocupReferee
+  CATKIN_DEPENDS RhobanUtils
 )
+
+include_directories(${catkin_INCLUDE_DIRS})
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra")
 

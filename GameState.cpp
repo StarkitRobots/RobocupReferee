@@ -6,6 +6,7 @@
  *  \brief   Game informations sent by the referee box
  *****************************************************************************/
 #include "GameState.h"
+#include "RefereeClient.hpp"
 
 #include <iostream>
 
@@ -35,7 +36,7 @@ bool GameState::update_from_message(char const* message){
   m_last_game_state_update.update();
   int struct_version = chars_to_int(message, 4, 6);
 
-  if (struct_version != 12) {
+  if (struct_version != RefereeClient::protocolVersion) {
       std::cerr << "Game controller bad version " << struct_version << std::endl;
       return false;
   }

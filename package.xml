@@ -11,6 +11,10 @@
   <license>TODO</license>
 
   <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>RhobanUtils</build_depend> <!-- rhobanproject/rhobanutils -->
+  
+  <run_depend>RhobanUtils</run_depend>
 
   <export>
   </export>

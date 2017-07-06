@@ -5,81 +5,59 @@
  *      Author: hugo
  */
 
-#include <sys/types.h>
-
-#ifdef WIN32
-#include <Winsock2.h>
-#else
 #include <unistd.h>
-#include <sys/socket.h>
-#include <netinet/in.h>
-#include <arpa/inet.h>
-#include <netdb.h>
-#endif
+#include <sys/types.h>
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "TimeStamp.h"
 
 #include "RefereeClient.hpp"
-
-#define ERROR(msg) do{perror(#msg); exit(0);}while(0);
 
 namespace RhobanReferee{
 
     void RefereeClient::start()
     {
+        _myTeamId = 0;
+        _myId = 0;
         thread = new std::thread(&RefereeClient::execute, this);
     }
 
     void RefereeClient::execute(void){
-#ifndef WIN32
+        Rhoban::UDPBroadcast broadcast(_portNo, _portSend);
         std::cout << "Referee Client started" << std::endl;
 
-        int sock, n, optval;
-        unsigned int length;
-        struct sockaddr_in from, client_address;
         char buffer[1024];
+        TimeStamp last;
 
-        optval = 1;
+        while (1) {
+            size_t n = 1024;
+            if (broadcast.checkMessage((unsigned char*)buffer, n)) {
+                buffer[n] = '\0';
+                _gamedata.update_from_message(buffer);
+            }
 
+            if (_myId != 0 && last.elapsed_time() > 5) {
+                last = TimeStamp();
+                uint8_t returnData[8];
+                returnData[0] = 'R';
+                returnData[1] = 'G';
+                returnData[2] = 'r';
+                returnData[3] = 't';
+                returnData[4] = protocolReturnVersion;
+                returnData[5] = _myTeamId;
+                returnData[6] = _myId;
+                returnData[7] = _message;
 
-        /* Client socket initialization */
-        sock = socket(AF_INET, SOCK_DGRAM, 0);
-        if (sock < 0) ERROR("socket");
-#ifndef WIN32
-        n = setsockopt(sock,SOL_SOCKET,SO_REUSEADDR,&optval,sizeof(int));
-        if (n < 0) ERROR("setSockOpt");
-#else
-        //n = setsockopt(sock,SOL_SOCKET,SO_REUSEADDR,NULL,sizeof(int));
-#endif
-
-        /* Configuring Client */
-        client_address.sin_family = AF_INET;
-        client_address.sin_addr.s_addr = INADDR_ANY;
-        client_address.sin_port = htons(_portNo);
-        n = bind(sock, (struct sockaddr *)&client_address,
-                sizeof(struct sockaddr_in));
-        if(n < 0) {ERROR("binding")};
-
-        length = sizeof(struct sockaddr_in);
-        /* Treatment of received messages */
-        while (1){
-#ifdef WIN32
-            int l = length;
-            n = recvfrom(sock, buffer, 1024, 0, (struct sockaddr *)&from, &l);
-#else
-            n = recvfrom(sock, buffer, 1024, 0, (struct sockaddr *)&from, &length);
-#endif
-            if (n < 0) ERROR("recvfrom");
-            buffer[n] = '\0';
-            _gamedata.update_from_message(buffer);
+                broadcast.broadcastMessage(returnData, 8);
+            }
         }
-#ifndef WIN32
-        close(sock);
-#else
-        closesocket(sock);
-#endif
-#endif
+    }
+
+    void RefereeClient::setState(uint8_t teamId, uint8_t myId, uint8_t message){
+        _myTeamId = teamId;
+        _myId = myId;
+        _message = message = message;
     }
 
     GameState & RefereeClient::getGameState(){
