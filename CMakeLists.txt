@@ -28,6 +28,7 @@ set(SOURCES
 )
 
 add_library(RobocupReferee ${SOURCES})
+target_link_libraries (RobocupReferee ${catkin_LIBRARIES})
 
 if (BUILD_REFEREE_BIN)
     add_executable (referee main.cpp)
