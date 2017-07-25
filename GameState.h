@@ -33,6 +33,7 @@ public:
   int getEstimatedSecs() const;
   int getSecondarySecs() const;
   int getSecondaryTeam() const;
+  int getSecondaryMode() const;
   int getNbTeam() const;
   int getGameType() const;
   const Team & getTeam(int teamNumber) const;
@@ -58,6 +59,7 @@ private:
   int m_estimated_secs;
   int m_secondary_secs;
   int m_secondary_team;
+  int m_secondary_mode;
   Team m_team[NB_TEAMS];
 };
 
