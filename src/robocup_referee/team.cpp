@@ -5,11 +5,11 @@
  *
  *  \brief   Team informations sent by the referee box
  *****************************************************************************/
-#include "Team.h"
+#include "robocup_referee/team.h"
 
 using namespace std;
 
-namespace RhobanReferee{
+namespace robocup_referee{
 
     Team::Team(){
         m_team_number = 0;
@@ -62,6 +62,3 @@ namespace RhobanReferee{
         return flux;
     }
 }
-
-/*****************************************************************************/
-/*****************************************************************************/

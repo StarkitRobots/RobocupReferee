@@ -6,15 +6,14 @@
  *  \brief   Game informations sent by the referee box
  *	This class is used to store easily informations about the game
  *****************************************************************************/
-#ifndef GAMESTATE_H
-#define GAMESTATE_H
+#pragma once
 
-#include "Team.h"
-#include "TimeStamp.h"
+#include "robocup_referee/team.h"
+#include "robocup_referee/time_stamp.h"
 
 #define NB_TEAMS 2
 
-namespace RhobanReferee{
+namespace robocup_referee{
 
 class GameState{
 public:
@@ -66,8 +65,3 @@ private:
 std::ostream& operator<<(std::ostream& flux, GameState const* myGameState);
 
 }
-
-#endif // GAMESTATE_H
-
-/*****************************************************************************/
-/*****************************************************************************/

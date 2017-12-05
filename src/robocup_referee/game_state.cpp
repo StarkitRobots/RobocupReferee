@@ -5,14 +5,14 @@
  *
  *  \brief   Game informations sent by the referee box
  *****************************************************************************/
-#include "GameState.h"
-#include "RefereeClient.hpp"
+#include "robocup_referee/game_state.h"
+#include "robocup_referee/referee_client.h"
 
 #include <iostream>
 
 using namespace std;
 
-namespace RhobanReferee{
+namespace robocup_referee{
 
 /* The value -1 is used to know if the wireless is working */
 GameState::GameState(){
@@ -151,6 +151,3 @@ ostream& operator<<(ostream& flux, GameState const* gs){
 }
 
 }
-
-/*****************************************************************************/
-/*****************************************************************************/

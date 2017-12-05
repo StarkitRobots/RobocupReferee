@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package>
-  <name>RobocupReferee</name>
+  <name>robocup_referee</name>
   <version>0.0.0</version>
   <description>The robocup refere for kid-size league</description>
 
@@ -12,9 +12,9 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   
-  <build_depend>RhobanUtils</build_depend> <!-- rhobanproject/rhobanutils -->
+  <build_depend>rhoban_utils</build_depend> <!-- rhobanproject/rhobanutils -->
   
-  <run_depend>RhobanUtils</run_depend>
+  <run_depend>rhoban_utils</run_depend>
 
   <export>
   </export>

@@ -9,12 +9,11 @@
  *	The implemented methob use the gettimeofday() function, all the robots
  *	must have the same time if
  *****************************************************************************/
-#ifndef TIMESTAMP_H
-#define TIMESTAMP_H
+#pragma once
 
 #include <iostream>
 
-namespace RhobanReferee{
+namespace robocup_referee{
 
 class TimeStamp{
 	public:
@@ -42,8 +41,3 @@ class TimeStamp{
 };
 
 }
-
-#endif // TIMESTAMP_H
-
-/*****************************************************************************/
-/*****************************************************************************/

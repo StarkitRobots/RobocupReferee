@@ -5,7 +5,7 @@
  *
  *  \brief   Miscellaneous functions
  *****************************************************************************/
- #include "utilities.h"
+#include "robocup_referee/utilities.h"
 
 int chars_to_int(char const* chaine, int debut, int fin){
   int somme = 0;
@@ -48,6 +48,3 @@ void add_int_to_chain(int nb, char * chaine, int debut, int fin){
 		debut++;
 	}
 }
-
-/*****************************************************************************/
-/*****************************************************************************/

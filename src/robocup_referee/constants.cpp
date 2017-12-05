@@ -5,11 +5,11 @@
  *
  *  \brief   Useful informations shared by the robot
  *****************************************************************************/
-#include "Constants.h"
+#include "robocup_referee/constants.h"
 
 using namespace std;
 
-namespace RhobanReferee{
+namespace robocup_referee{
 
     /* Classes and messages size */
     const int Constants::nb_chars_by_robot = 4;

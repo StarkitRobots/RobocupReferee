@@ -1,9 +1,10 @@
+#include "robocup_referee/time_stamp.h"
+
 #include <sys/time.h>
-#include "TimeStamp.h"
 
 using namespace std;
 
-namespace RhobanReferee{
+namespace robocup_referee{
 
 /* Caution, with a 16 bit computer, the result will be restricted to 655 secs~ */
 int hundredth_of_seconds(){
@@ -47,6 +48,3 @@ ostream& operator<<(ostream& flux, TimeStamp const& myTimeStamp){
 }
 
 }
-
-/*****************************************************************************/
-/*****************************************************************************/

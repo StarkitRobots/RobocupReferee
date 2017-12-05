@@ -2,10 +2,11 @@
 
 #include <string>
 #include <thread>
-#include "GameState.h"
-#include <sockets/UDPBroadcast.hpp>
 
-namespace RhobanReferee{
+#include "robocup_referee/game_state.h"
+#include "rhoban_utils/sockets/udp_broadcast.h"
+
+namespace robocup_referee{
 
     class RefereeClient
     {

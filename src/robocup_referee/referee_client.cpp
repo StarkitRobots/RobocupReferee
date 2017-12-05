@@ -4,17 +4,17 @@
  *  Created on: 5 juil. 2011
  *      Author: hugo
  */
+#include "robocup_referee/referee_client.h"
 
 #include <unistd.h>
 #include <sys/types.h>
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "TimeStamp.h"
 
-#include "RefereeClient.hpp"
+#include "robocup_referee/time_stamp.h"
 
-namespace RhobanReferee{
+namespace robocup_referee{
 
     void RefereeClient::start()
     {
@@ -24,7 +24,7 @@ namespace RhobanReferee{
     }
 
     void RefereeClient::execute(void){
-        Rhoban::UDPBroadcast broadcast(_portNo, _portSend);
+        rhoban_utils::UDPBroadcast broadcast(_portNo, _portSend);
         std::cout << "Referee Client started" << std::endl;
 
         char buffer[1024];

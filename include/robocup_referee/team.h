@@ -6,14 +6,13 @@
  *  \brief   Team informations sent by the referee box
  *	This class is used to store the team informations
  *****************************************************************************/
-#ifndef TEAM_H
-#define TEAM_H
+#pragma once
 
-#include "Robot.h"
+#include "robocup_referee/robot.h"
 
 #define NB_ROBOTS 6
 
-namespace RhobanReferee{
+namespace robocup_referee{
 
     class Team
     {
@@ -41,5 +40,3 @@ namespace RhobanReferee{
     std::ostream& operator<<(std::ostream& flux, Team const& myTeam);
 
 }
-
-#endif

@@ -6,14 +6,14 @@
  *  \brief   Robot informations sent by the referee box
  *	This class is used to store the robot informations
  *****************************************************************************/
-#ifndef ROBOT_H
-#define ROBOT_H
+#pragma once
 
-#include "Constants.h"
-#include "utilities.h"
 #include <iostream>
 
-namespace RhobanReferee{
+#include "robocup_referee/constants.h"
+#include "robocup_referee/utilities.h"
+
+namespace robocup_referee{
 
 class Robot{
 public:
@@ -38,8 +38,3 @@ private:
 std::ostream& operator<<(std::ostream& flux, Robot const& myRobot);
 
 }
-
-#endif // ROBOT_H
-
-/*****************************************************************************/
-/*****************************************************************************/

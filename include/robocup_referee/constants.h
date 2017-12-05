@@ -7,12 +7,11 @@
  *	By centralizing all constants in this file, it's easy to change some
  *	parameters if specifications change.
  *****************************************************************************/
-#ifndef CONSTANTS_H
-#define CONSTANTS_H
-#include <string>
-#include "Robot.h"
+#pragma once
 
-namespace RhobanReferee{
+#include <string>
+
+namespace robocup_referee{
 
     class Constants{
         public:
@@ -102,5 +101,3 @@ namespace RhobanReferee{
             static const int PENALTY_DURATION = 60; // secs
     };
 }
-
-#endif

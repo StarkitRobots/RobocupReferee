@@ -4,7 +4,7 @@
 #include "RefereeClient.hpp"
 
 using namespace std;
-using namespace RhobanReferee;
+using namespace robocup_referee;
 
 /**
  * This just dumps the informations from the referee client

@@ -5,11 +5,11 @@
  *
  *  \brief   Robot informations sent by the referee box
  *****************************************************************************/
- #include "Robot.h"
+#include "robocup_referee/robot.h"
 
 using namespace std;
 
-namespace RhobanReferee{
+namespace robocup_referee{
 
 Robot::Robot(){
 	m_penalty = 0;
@@ -53,6 +53,3 @@ ostream& operator<<(ostream&flux, Robot const& r){
 }
 
 }
-
-/*****************************************************************************/
-/*****************************************************************************/
