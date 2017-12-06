@@ -7,6 +7,9 @@
  *****************************************************************************/
 #include "robocup_referee/utilities.h"
 
+namespace robocup_referee
+{
+
 int chars_to_int(char const* chaine, int debut, int fin){
   int somme = 0;
   int i = 0;
@@ -47,4 +50,6 @@ void add_int_to_chain(int nb, char * chaine, int debut, int fin){
 		nb /= 256;
 		debut++;
 	}
+}
+
 }
