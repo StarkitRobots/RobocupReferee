@@ -61,7 +61,7 @@ namespace robocup_referee{
     const double Constants::lineWidth         =   6;
     const double Constants::centerRadius      =  78;
     const double Constants::borderStripWidth  =  95;//Minimum value
-    const double Constants::penaltyMarkDist   = 209;
+    const double Constants::penaltyMarkDist   = 130;
     const double Constants::penaltyMarkLength =  15;
     const double Constants::goalWidth         = 150;
     const double Constants::goalDepth         =  61;
