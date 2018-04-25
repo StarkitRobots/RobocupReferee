@@ -20,6 +20,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -Wextra")
 set(SOURCES
   src/robocup_referee/constants.cpp
   src/robocup_referee/game_state.cpp
+  src/robocup_referee/field.cpp
   src/robocup_referee/referee_client.cpp
   src/robocup_referee/robot.cpp
   src/robocup_referee/team.cpp
