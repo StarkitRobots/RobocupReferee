@@ -34,6 +34,7 @@ Json::Value Field::toJson() const {
   v["goalAreaWidth"    ] = goalAreaWidth     ;
   v["fieldLength"      ] = fieldLength       ;
   v["fieldWidth"       ] = fieldWidth        ;
+  return v;
 }
 
 void Field::fromJson(const Json::Value & v, const std::string & dir_path) {
