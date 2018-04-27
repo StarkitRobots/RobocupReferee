@@ -13,6 +13,9 @@ public:
   Json::Value toJson() const override;
   void fromJson(const Json::Value & v, const std::string & path);
 
+  /// Radius of the ball [m]
+  double ballRadius;
+
   /// The width of white lines [m]
   double lineWidth;
 

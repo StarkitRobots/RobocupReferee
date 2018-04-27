@@ -3,6 +3,7 @@
 namespace robocup_referee {
 
 Field::Field() {
+  ballRadius = 0.075;
   /// Expected field sizes
   lineWidth         = 0.05;
   centerRadius      = 0.75;
@@ -23,6 +24,7 @@ std::string Field::getClassName() const {
 
 Json::Value Field::toJson() const {
   Json::Value v;
+  v["ballRadius"       ] = ballRadius        ;
   v["lineWidth"        ] = lineWidth         ;
   v["centerRadius"     ] = centerRadius      ;
   v["borderStripWidth" ] = borderStripWidth  ;
@@ -39,6 +41,7 @@ Json::Value Field::toJson() const {
 
 void Field::fromJson(const Json::Value & v, const std::string & dir_path) {
   (void) dir_path;
+  rhoban_utils::tryRead(v,"ballRadius"       , &ballRadius       );
   rhoban_utils::tryRead(v,"lineWidth"        , &lineWidth        );
   rhoban_utils::tryRead(v,"centerRadius"     , &centerRadius     );
   rhoban_utils::tryRead(v,"borderStripWidth" , &borderStripWidth );
