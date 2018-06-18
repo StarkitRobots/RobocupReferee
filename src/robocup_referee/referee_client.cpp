@@ -31,6 +31,7 @@ namespace robocup_referee{
         TimeStamp last;
 
         while (1) {
+            usleep(1000);
             size_t n = 1024;
             if (broadcast.checkMessage((unsigned char*)buffer, n)) {
                 buffer[n] = '\0';
