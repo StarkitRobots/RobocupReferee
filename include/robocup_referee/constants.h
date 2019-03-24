@@ -13,16 +13,17 @@
 
 #include <robocup_referee/field.h>
 
-namespace robocup_referee{
-
-class Constants : public rhoban_utils::JsonSerializable {
+namespace robocup_referee
+{
+class Constants : public rhoban_utils::JsonSerializable
+{
 public:
   /// Containing all the dimensions of the field
   static Field field;
 
   /* Headers informations */
   static const int header_length = 4;
-  static const char * game_state_header;
+  static const char* game_state_header;
   /* Chars informations */
   static const int nb_chars_by_robot;
   static const int nb_chars_by_team;
@@ -65,26 +66,27 @@ public:
 
   /* DURATIONS (in seconds) */
   /* Game informations */
-  static const int PERIOD_DURATION = 600; // Two Periods
-  static const int HALFTIME_DURATION = 300; // Maximum
-  static const int ADDITIONNAL_PERIOD_DURATION = 300; // Two again
+  static const int PERIOD_DURATION = 600;              // Two Periods
+  static const int HALFTIME_DURATION = 300;            // Maximum
+  static const int ADDITIONNAL_PERIOD_DURATION = 300;  // Two again
 
   static const int TIMEOUT_DURATION = 120;
 
   /* Organization */
-  static const int TIME_AFTER_PLAY_BEFORE_REAL_START = 10; // For the team which isn't doing the kick-off
+  static const int TIME_AFTER_PLAY_BEFORE_REAL_START = 10;  // For the team which isn't doing the kick-off
   static const int INTERVAL_SET_PLAY = 10;
-  static const int INTERVAL_GOAL_SET = 30; // After a goal, autonomous robots have 30 seconds to place well
+  static const int INTERVAL_GOAL_SET = 30;  // After a goal, autonomous robots have 30 seconds to place well
 
   /* Rules */
-  static const int HOLDING_LIMIT = 1; // Field Players aren't allowed to keep the ball more than 1 seconds
-  static const int GOALKEEPER_HOLDING_LIMIT = 5; // GoalKeeper can hold the Ball in it's hands for 4 seconds
-  static const int GOAL_AREA_LIMIT = 10; // None team is allowed to have two players in the goal area for more than 10 seconds
+  static const int HOLDING_LIMIT = 1;             // Field Players aren't allowed to keep the ball more than 1 seconds
+  static const int GOALKEEPER_HOLDING_LIMIT = 5;  // GoalKeeper can hold the Ball in it's hands for 4 seconds
+  static const int GOAL_AREA_LIMIT =
+      10;  // None team is allowed to have two players in the goal area for more than 10 seconds
 
   static const int REMOVAL_PENALTY_DURATION = 30;
 
   /* PENALTY KICK */
-  static const int MAX_DISTANCE_TO_PENALTY_MARK = 20; // cm
-  static const int PENALTY_DURATION = 60; // secs
+  static const int MAX_DISTANCE_TO_PENALTY_MARK = 20;  // cm
+  static const int PENALTY_DURATION = 60;              // secs
 };
-}
+}  // namespace robocup_referee

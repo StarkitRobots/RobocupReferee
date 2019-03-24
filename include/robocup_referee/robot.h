@@ -13,9 +13,10 @@
 #include "robocup_referee/constants.h"
 #include "robocup_referee/utilities.h"
 
-namespace robocup_referee{
-
-class Robot{
+namespace robocup_referee
+{
+class Robot
+{
 public:
   Robot();
   ~Robot();
@@ -24,7 +25,7 @@ public:
   int getSecsTillUnpenalised() const;
   int getYellowCardCount() const;
   int getRedCardCount() const;
-  
+
   /*! \brief Update the robot from a referee box message */
   void update_from_message(char const* message, int numRobot);
 
@@ -37,4 +38,4 @@ private:
 
 std::ostream& operator<<(std::ostream& flux, Robot const& myRobot);
 
-}
+}  // namespace robocup_referee

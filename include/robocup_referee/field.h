@@ -2,16 +2,17 @@
 
 #include <rhoban_utils/serialization/json_serializable.h>
 
-namespace robocup_referee {
-
+namespace robocup_referee
+{
 /// All field informations are in meters
-class Field : public rhoban_utils::JsonSerializable {
+class Field : public rhoban_utils::JsonSerializable
+{
 public:
   Field();
 
   std::string getClassName() const override;
   Json::Value toJson() const override;
-  void fromJson(const Json::Value & v, const std::string & path);
+  void fromJson(const Json::Value& v, const std::string& path);
 
   /// Radius of the ball [m]
   double ballRadius;
@@ -50,4 +51,4 @@ public:
   double fieldWidth;
 };
 
-}
+}  // namespace robocup_referee

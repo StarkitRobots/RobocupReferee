@@ -9,7 +9,6 @@
 
 namespace robocup_referee
 {
-
 /*! \brief Return the int reprensentated by one or more char(s)*/
 int chars_to_int(char const* chaine, int debut, int fin);
 
@@ -18,6 +17,6 @@ unsigned int chars_to_unsigned_int(char const* chaine, int debut, int fin);
 
 /*! \brief Add the specified int to chaine between debut and fin :
  *	debut (include) and fin(not include */
-void add_int_to_chain(int nb, char * chaine, int debut, int fin);
+void add_int_to_chain(int nb, char* chaine, int debut, int fin);
 
-}
+}  // namespace robocup_referee

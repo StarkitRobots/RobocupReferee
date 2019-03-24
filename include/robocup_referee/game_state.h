@@ -13,9 +13,10 @@
 
 #define NB_TEAMS 2
 
-namespace robocup_referee{
-
-class GameState{
+namespace robocup_referee
+{
+class GameState
+{
 public:
   GameState();
   ~GameState();
@@ -35,17 +36,17 @@ public:
   int getSecondaryMode() const;
   int getNbTeam() const;
   int getGameType() const;
-  const Team & getTeam(int teamNumber) const;
-  
+  const Team& getTeam(int teamNumber) const;
+
   /*! \brief Update the robot from a referee box message
    * return true if there has been an update and false if
    * the message was discarded (invalid struct version) */
-	bool update_from_message(char const* message);
+  bool update_from_message(char const* message);
 
-	void show(std::ostream& flux) const;
-  
+  void show(std::ostream& flux) const;
+
 private:
-	TimeStamp m_last_game_state_update;
+  TimeStamp m_last_game_state_update;
   int m_struct_version;
   int m_game_type;
   int m_num_player;
@@ -64,4 +65,4 @@ private:
 
 std::ostream& operator<<(std::ostream& flux, GameState const* myGameState);
 
-}
+}  // namespace robocup_referee

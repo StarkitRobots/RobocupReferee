@@ -13,31 +13,32 @@
 
 #include <iostream>
 
-namespace robocup_referee{
+namespace robocup_referee
+{
+class TimeStamp
+{
+public:
+  TimeStamp();
 
-class TimeStamp{
-	public:
-	TimeStamp();
+  /*! \brief Return the stamp without any modification */
+  int getStamp() const;
 
-	/*! \brief Return the stamp without any modification */
-	int getStamp() const;
+  /*! \brief Change the TimeStamp to actual time */
+  void update();
 
-	/*! \brief Change the TimeStamp to actual time */
-	void update();
+  /*! \brief Set the TimeStamp to the specified time */
+  void set_to(unsigned int new_time);
 
-	/*! \brief Set the TimeStamp to the specified time */
-	void set_to(unsigned int new_time);
+  /*! \brief Return the elapsed time since last update in hundredth of seconds */
+  int elapsed_time() const;
 
-	/*! \brief Return the elapsed time since last update in hundredth of seconds */
-	int elapsed_time() const;
+private:
+  unsigned int m_stamp;            // This stamp is not modified
+  unsigned static int firstStamp;  // Reference time
 
-	private:
-	unsigned int m_stamp; // This stamp is not modified
-	unsigned static int firstStamp; // Reference time
+  void show(std::ostream& flux) const;
 
-	void show(std::ostream& flux) const;
-
-	friend std::ostream& operator<<(std::ostream& flux, TimeStamp const& myTimeStamp);
+  friend std::ostream& operator<<(std::ostream& flux, TimeStamp const& myTimeStamp);
 };
 
-}
+}  // namespace robocup_referee
