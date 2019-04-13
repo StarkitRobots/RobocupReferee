@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "RefereeClient.hpp"
+#include <robocup_referee/referee_client.h>
 
 using namespace std;
 using namespace robocup_referee;
