@@ -60,6 +60,9 @@ public:
   static const int STATE2_DIRECT_FREE_KICK = 4;
   static const int STATE2_INDIRECT_FREE_KICK = 5;
   static const int STATE2_PENALTY_KICK = 6;
+  static const int STATE2_CORNER_KICK = 7;
+  static const int STATE2_GOAL_KICK = 8;
+  static const int STATE2_THROW_IN = 9;
 
   /* Penalties */
   static const short PENALTY_NONE = 0;
