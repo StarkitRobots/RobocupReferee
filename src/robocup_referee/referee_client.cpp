@@ -41,7 +41,8 @@ void RefereeClient::execute(void)
       _gamedata.update_from_message(buffer);
     }
 
-    if (_myId != 0 && last.elapsed_time() > 5)
+    // Answering referee at 1hz
+    if (_myId != 0 && last.elapsed_time() > 100)
     {
       last = TimeStamp();
       uint8_t returnData[8];
