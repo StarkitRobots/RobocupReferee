@@ -56,7 +56,7 @@ void Team::update_from_message(char const* message, int numTeam)
   m_score = chars_to_int(message, d + 2, d + 3);
   for (int robot = 0; robot < NB_ROBOTS; robot++)
   {
-    m_robots[robot].update_from_message(message + d + 260 + Constants::nb_chars_by_robot, robot);
+    m_robots[robot].update_from_message(message + d + 6, robot);
   }
 }
 
