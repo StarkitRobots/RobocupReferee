@@ -12,10 +12,10 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   
-  <build_depend>rhoban_utils</build_depend> <!-- StarkitRobots/utils -->
+  <build_depend>starkit_utils</build_depend> <!-- StarkitRobots/utils -->
   <build_depend>hl_monitoring</build_depend> <!-- StarkitRobots/hl_monitoring -->
   
-  <run_depend>rhoban_utils</run_depend>
+  <run_depend>starkit_utils</run_depend>
   <run_depend>hl_monitoring</run_depend>
 
   <export>
