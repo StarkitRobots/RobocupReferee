@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 2.8.3)
 project(robocup_referee)
 
 ## Find catkin macros and lib
-find_package(catkin REQUIRED COMPONENTS rhoban_utils hl_monitoring)
+find_package(catkin REQUIRED COMPONENTS starkit_utils hl_monitoring)
 
 ## Building the main
 option (BUILD_REFEREE_BIN "Build referee binary" OFF)
@@ -10,7 +10,7 @@ option (BUILD_REFEREE_BIN "Build referee binary" OFF)
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES robocup_referee
-  CATKIN_DEPENDS rhoban_utils hl_monitoring
+  CATKIN_DEPENDS starkit_utils hl_monitoring
 )
 
 include_directories(include ${catkin_INCLUDE_DIRS})
