@@ -25,7 +25,7 @@ void RefereeClient::start()
 
 void RefereeClient::execute(void)
 {
-  rhoban_utils::UDPBroadcast broadcast(_portNo, _portSend);
+  starkit_utils::UDPBroadcast broadcast(_portNo, _portSend);
   std::cout << "Referee Client started" << std::endl;
 
   char buffer[1024];

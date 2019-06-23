@@ -11,15 +11,15 @@
 
 #include <string>
 
-#include <hl_monitoring/field.h>
+#include <robocup_referee/field.h>
 
 namespace robocup_referee
 {
-class Constants
+class Constants : public starkit_utils::JsonSerializable
 {
 public:
   /// Containing all the dimensions of the field
-  static hl_monitoring::Field field;
+  static Field field;
 
   /* Headers informations */
   static const int header_length = 4;
